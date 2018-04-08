@@ -147,12 +147,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	</div>
         <div id="id02" class="modal">
       <span onclick="document.getElementById('id02').style.display='none'" class="closeSignup" title="Close Modal">&times;</span>
-      <form class="modal-content" action="index.php" method="post" autocomplete="off">
+      <form class="modal-content" action="index.php" method="post" autocomplete="on">
         <div class="container">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
           <hr>
-          <input type="text" placeholder="Enter Email" name='email' required />
+          <input type="email" placeholder="Enter Email" name='email' required />
 
           <input type="text" placeholder="Enter Username" name='username' required />
 
@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   {
 ?>
 <div class="mainLogin">
-<form class="modal-content animate" action="index.php" method="post" autocomplete="off">
+<form class="modal-content animate" action="index.php" method="post" autocomplete="on">
         <div class="imgcontainer">
           <img src="img/icon_blue.png" height=100px width=150px alt="Avatar" class="icon">
         </div>
@@ -214,13 +214,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           <input type="text" placeholder="Enter Username" name="username" required>
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="psw" required autocomplete="current-password">
           <button name="login" class="loginbutton">Login</button>
           <div class="signup" onclick=" document.getElementById('id02').style.display='block'">Sign Up</div>
           <p class="forgot"><a href="php/forgot.php">Forgot Password?</a></p>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
         </div>
       </form>
     </div>
