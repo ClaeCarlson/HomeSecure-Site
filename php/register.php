@@ -48,7 +48,7 @@ else { // Email doesn't already exist in a database, proceed...
 
         Please click this link to activate your account:
 
-        http://localhost/webserver1/homesecure/php/verify.php?email='.$email.'&hash='.$hash;  
+        http://172.19.20.41/php/verify.php?email='.$email.'&hash='.$hash;  
 
         mail( $to, $subject, $message_body );
 
