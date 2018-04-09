@@ -21,6 +21,14 @@ session_start();
 
     	$(document).ready(function(){
 
+        $.ajax({
+            url: 'php/getTheme.php',
+          success: function(data) {
+            setTheme(data);
+          }
+        });
+
+
     	$("#stage").on('load', function () { 
 
     		if (firstLoad){

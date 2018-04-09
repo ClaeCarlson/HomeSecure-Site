@@ -360,14 +360,16 @@ body{
   }
 }
 
-/* Theme Selection */
+/* Settings and Theme Selection */
 .theme_select {
     cursor: pointer;
     display: inline-block !important;
-    width: 80px;
+    width: 120px;
     line-height: 40px;
     padding-bottom: 20px;
     border: 1px solid #eee;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .theme_select img {
     vertical-align: middle;
@@ -390,6 +392,10 @@ body{
 .caption {
     text-align: center;
     display: block;
+}
+
+.email {
+    cursor: pointer;
 }
 
 /* Modal */
