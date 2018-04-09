@@ -36,14 +36,21 @@
 	<div>
 
 	<div>Theme:
-		<div onclick="setTheme('default')" class="theme_select default"><img src="img/icon_blue.png" height="50px" width="80px"><span class="caption">Default</span></div>
-		<div onclick="setTheme('night')" class="theme_select night"><img src="img/icon_white.png" height="50px" width="80px"><span class="caption">Night</span></div>
-		<div onclick="setTheme('leafgreen')" class="theme_select leafgreen"><img src="img/icon_white.png" height="50px" width="80px"><span class="caption">Leaf</span></div>
+		
+		<button onclick="setTheme('default'); selectTheme(1);" class="theme_select default"><img src="img/icon_blue.png" height="50px" width="80px"><span class="caption">Default</span></button>
+		<button onclick="setTheme('night'); selectTheme(2)" class="theme_select night"><img src="img/icon_white.png" height="50px" width="80px"><span class="caption">Night</span></button>
+		<button onclick="setTheme('leafgreen'); selectTheme(3)" class="theme_select leafgreen"><img src="img/icon_white.png" height="50px" width="80px"><span class="caption">Leaf</span></button>
+		
 	</div>
 	<div>Preferred Email: <span class="email" id="email"></span></div>
 	<div></div>
 	<div></div>
-	<div></div>
+	<form action="php/setPref.php" method="post" style="border: none; display: inline-block;">
+
+	<input style="display: none" type="text" name="theme" id="theme">
+	<input style="display: none" type="text" name="email" id="email">
+	<div><button>Save Preferences</button></div>
+	</form>
 
 
 

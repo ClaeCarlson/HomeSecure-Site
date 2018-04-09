@@ -364,10 +364,12 @@ body{
 .theme_select {
     cursor: pointer;
     display: inline-block !important;
-    width: 80px;
+    width: 120px;
     line-height: 40px;
     padding-bottom: 20px;
     border: 1px solid #eee;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .theme_select img {
     vertical-align: middle;
@@ -488,7 +490,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

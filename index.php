@@ -21,6 +21,14 @@ session_start();
 
     	$(document).ready(function(){
 
+        $.ajax({
+            url: 'php/getTheme.php',
+          success: function(data) {
+            setTheme(data);
+          }
+        });
+
+
     	$("#stage").on('load', function () { 
 
     		if (firstLoad){
@@ -152,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
           <hr>
-          <input type="text" placeholder="Enter Email" name='email' required />
+          <input type="email" placeholder="Enter Email" name='email' required />
 
           <input type="text" placeholder="Enter Username" name='username' required />
 
