@@ -8,6 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="js/homesecure.js"></script>
 		<script type="text/javascript">
+		var status;
 		$(document).ready(function(){
 
 
@@ -41,14 +42,15 @@
 
 	<div>
 
-	<div style="text-align: center;"><h1>System is: <span id="status"><span class="loadingStatus"></span></span></h1></div>
+	<div style="text-align: center;"><h1>System is: <span class="status" id="status" onclick="setStatus();"><span class="loadingStatus"></span></span></h1></div>
 	<div></div>
 	<div></div>
 	<div></div>
 	<div></div>
 	<div></div>
 	<div></div>
-	<div></div>
+	<div id="statusOverlayLock" class="statusOverlayLock"><i class="fas fa-lock"></i></div>
+	<div id="statusOverlayUnlock" class="statusOverlayUnlock"><i class="fas fa-unlock"></i></div>
 
 
 	</div>

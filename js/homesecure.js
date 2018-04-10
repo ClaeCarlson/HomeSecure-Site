@@ -99,6 +99,8 @@ $(document).ready(function(){
 
 
 
+
+
           //1000 = 1 sec
         }, 1000);
 
@@ -182,6 +184,41 @@ function load(v){
 
 }
 
+function setStatus(status){
+
+	var armstatus;
+
+	
+	$(document).ready(function(){
+
+		if ($("#status").html().includes("DISARMED")){
+
+		$("#statusOverlayLock").css("display", "inline-block");
+		setTimeout(function(){ 
+			$("#statusOverlayLock").css("display", "none");
+		}, 900);
+
+		armstatus = 1;
+		}
+		else {
+			$("#statusOverlayUnlock").css("display", "inline-block");
+		setTimeout(function(){ 
+			$("#statusOverlayUnlock").css("display", "none");
+		}, 900);
+			armstatus = 0;
+		}
+
+		$.ajax({
+  				url: 'php/setStatus.php',
+  				type: "post",
+  				data: {status: armstatus},
+ 				success: function(data) {
+  			}
+		});
+
+	});
+}
+
 function setTheme(theme) {
 
 	
@@ -213,6 +250,10 @@ function selectTheme(theme) {
 
 	document.getElementById("theme").value = theme
 
+}
+
+function setEmail(){
+	alert("email");
 }
 
 function select(op){

@@ -335,7 +335,85 @@ body{
 
 /* Arm/Disarm */
 .status {
-    padding: 50px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+.status:hover{
+    background-color: var(--sidenav-hoverbg);
+}
+
+.statusOverlayLock {
+    font-size: 200px;
+    position: fixed; 
+    width: 1010px; 
+    height: 100%; 
+    top: 0px; 
+    left: 0px; 
+    background-color: black !important; 
+    color: white;
+    opacity: 0.8;
+    filter: alpha(opacity = 80) !important;
+    line-height: 500px;
+    text-align: center;
+    z-index: 100;
+    display: none;
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
+}
+
+.statusOverlayUnlock {
+    font-size: 200px;
+    position: fixed; 
+    width: 1010px; 
+    height: 100%; 
+    top: 0px; 
+    left: 0px; 
+    background-color: black !important; 
+    color: white;
+    opacity: 0.8;
+    filter: alpha(opacity = 80) !important;
+    line-height: 500px;
+    text-align: center;
+    z-index: 100;
+    display: none;
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.8; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.8; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.8; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.8; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.8; }
 }
 
 .loadingStatus:after {
