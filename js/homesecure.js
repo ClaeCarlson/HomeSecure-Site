@@ -16,6 +16,9 @@ var url = "http://172.19.20.41:8123/api/states"
 var firstLoad = 1;
 var gotten = 0;
 
+var preferredTheme = "";
+
+
 //JQuery 
 $(document).ready(function(){
 
@@ -196,10 +199,19 @@ function setTheme(theme) {
 			themeSrc = "css/leafgreen.css";
 			window.parent.postMessage("css/leafgreen.css", '*'); 
 			break;
+		default:
+			themeSrc = "css/style.css";
+			window.parent.postMessage("css/style.css", '*');
+			break;
 
 	}
+}
 
+function selectTheme(theme) {
 
+	preferredTheme = theme;
+
+	document.getElementById("theme").value = theme
 
 }
 
