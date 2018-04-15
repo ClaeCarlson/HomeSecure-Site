@@ -41,7 +41,7 @@
 
 	<div>
 
-	<div style="text-align: center;"><h1>System is: <span id="status"><span class="loadingStatus"></span></span></h1></div>
+	<div style="text-align: center;"><h1>System is: <span class="status" id="status" onclick="setStatus();"><span class="loadingStatus"></span></span></h1></div>
 	<div></div>
 	<div></div>
 	<div></div>
@@ -49,6 +49,8 @@
 	<div></div>
 	<div></div>
 	<div></div>
+	<div id="statusOverlayLock" class="statusOverlayLock"><i class="fas fa-lock"></i></div>
+	<div id="statusOverlayUnlock" class="statusOverlayUnlock"><i class="fas fa-unlock"></i></div>
 
 
 	</div>

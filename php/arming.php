@@ -11,10 +11,13 @@
   	}
   	$lastdoor1 = "";
 	$lastdoor2 = "";
+	$laststatus = "";
 	$sendMessage1 = 0;
 	$sendMessage2 = 0;
 	$sendMessageSmoke = 0;
 	$sendMessageCO = 0;
+	$insertCO = 0;
+	$insertSmoke = 0;
 
   	while (true)
   	{
@@ -81,14 +84,19 @@
 		if ($status['status'] == 0)
 		{
 			echo "system is disarmed";
-			$sendMessage1 = 0;
-			$sendMessage2 = 0;
-			$sendMessageSmoke = 0;
-			$sendMessageCO = 0;
-			continue;
+			if ($laststatus == 1)
+			{
+				$sendMessage1 = 0;
+				$sendMessage2 = 0;
+				$sendMessageSmoke = 0;
+				$sendMessageCO = 0;
+				$laststatus = 0;
+			}
+			//continue;
 		}
 		else 
 		{
+			$laststatus = 1;
 			for ($i = 0; $i < $length; $i++)
 			{
 				if ($data[$i]->entity_id == "binary_sensor.zwaveme_zuno_sensor_24") 
@@ -114,49 +122,62 @@
 					}
 				}
 			}
-
-			for ($i = 0; $i < $length; $i++) 
-			{
-				if ($data[$i]->entity_id == "binary_sensor.zwaveme_zuno_sensor_25") 
-				{
-					if ((($data[$i]->state) == "on" && $sendMessageSmoke == 0) || $sendMessageSmoke == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
-					{
-						$message = "Smoke detected!";
-						$sendMessageSmoke++;
-						$subject = "Smoke Alarm";
-						echo "smoke";
-						echo $sendMessageSmoke;
-					}
-				}
-				if ($data[$i]->entity_id == "binary_sensor.sensor_24") 
-				{
-					if ((($data[$i]->state) == "on" && $sendMessageCO == 0) || $sendMessageCO == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
-					{
-						$message = "Carbon Monoxide detected!";
-						$sendMessageCO++;
-						$subject = "CO Alarm";
-						echo "CO";
-						echo $sendMessageCO;
-					}
-				}
-			}
-
-			if ($sendMessage1 == 1 or $sendMessage2 == 1 or $sendMessageCO == 1 or $sendMessageSmoke == 1) //This makes sure the user is only sent one email for each sensor activated instead of a user getting an email for each loop. 
-			{
-				for ($i = 0; $i < count($useremails); $i++)
-				{
-					echo $useremails[$i];
-					$to = $useremails[$i];
-					mail( $to, $subject, $message );
-					echo "Email SEnt";
-
-
-				}
-				sleep(15);
-			}
   		
   		}
+  		for ($i = 0; $i < $length; $i++) 
+		{
+			if ($data[$i]->entity_id == "binary_sensor.zwaveme_zuno_sensor_25") 
+			{
+				if ((($data[$i]->state) == "on" && $sendMessageSmoke == 0) || $sendMessageSmoke == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
+				{
+					if ($sendMessageSmoke == 0)
+						$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(1, 5, 1)"); 
+					$message = "Smoke detected!";
+					$sendMessageSmoke++;
+					$subject = "Smoke Alarm";
+					echo "smoke";
+					echo $sendMessageSmoke;
+				}
+				elseif (($data[$i]->state) == "off" && $sendMessageSmoke != 0 && $insertSmoke == 0) 
+				{
+					$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(0, 5, 1)");
+					$insertSmoke++;
+				}
+
+			}
+			if ($data[$i]->entity_id == "binary_sensor.sensor_24") 
+			{
+				if ((($data[$i]->state) == "on" && $sendMessageCO == 0) || $sendMessageCO == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
+				{
+					if ($sendMessageCO == 0)
+						$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(1, 6, 1)"); 
+					$message = "Carbon Monoxide detected!";
+					$sendMessageCO++;
+					$subject = "CO Alarm";
+					echo "CO";
+					echo $sendMessageCO;
+					
+				}
+				elseif (($data[$i]->state) == "off" && $sendMessageCO != 0 && $insertCO == 0) 
+				{
+					$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(0, 6, 1)");
+					$insertCO++;
+				}
+			}
+		}
+
+		if ($sendMessage1 == 1 or $sendMessage2 == 1 or $sendMessageCO == 1 or $sendMessageSmoke == 1) //This makes sure the user is only sent one email for each sensor activated instead of a user getting an email for each loop. 
+		{
+			for ($i = 0; $i < count($useremails); $i++)
+			{
+				echo $useremails[$i];
+				$to = $useremails[$i];
+				mail( $to, $subject, $message );
+				echo "Email SEnt";
+
+
+			}
+			sleep(15);
+		}
   	}
-
-
  ?>

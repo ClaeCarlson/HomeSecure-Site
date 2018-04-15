@@ -10,8 +10,8 @@ var themeSrc = "css/style.css";
 //var camUrl = "https://wztxmxwb.p19.rt3.io/"
 var camUrl = "http://192.168.0.123:8081"
 
-var url = "http://192.168.0.123:8123/api/states"
-//var url = "http://172.19.20.41:8123/api/states"
+var url = "http://192.168.0.123:8123/api/states?api_password=aurorahome"
+//var url = "http://172.19.20.41:8123/api/states?api_password=aurorahome"
 //var url = "https://rzyygcpm.p19.rt3.io/api/states"
 var firstLoad = 1;
 var gotten = 0;
@@ -180,6 +180,41 @@ function load(v){
 	}
 
 
+}
+
+function setStatus(status){
+
+	var armstatus;
+
+	
+	$(document).ready(function(){
+
+		if ($("#status").html().includes("DISARMED")){
+
+		$("#statusOverlayLock").css("display", "inline-block");
+		setTimeout(function(){ 
+			$("#statusOverlayLock").css("display", "none");
+		}, 900);
+
+		armstatus = 1;
+		}
+		else {
+			$("#statusOverlayUnlock").css("display", "inline-block");
+		setTimeout(function(){ 
+			$("#statusOverlayUnlock").css("display", "none");
+		}, 900);
+			armstatus = 0;
+		}
+
+		$.ajax({
+  				url: 'php/setStatus.php',
+  				type: "post",
+  				data: {status: armstatus},
+ 				success: function(data) {
+  			}
+		});
+
+	});
 }
 
 function setTheme(theme) {
