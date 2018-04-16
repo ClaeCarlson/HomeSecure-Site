@@ -131,7 +131,9 @@
 				if ((($data[$i]->state) == "on" && $sendMessageSmoke == 0) || $sendMessageSmoke == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
 				{
 					if ($sendMessageSmoke == 0)
+					{
 						$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(1, 5, 1)"); 
+					}
 					$message = "Smoke detected!";
 					$sendMessageSmoke++;
 					$subject = "Smoke Alarm";
