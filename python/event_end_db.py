@@ -22,7 +22,6 @@ try:
 		try:
 			cursor.execute(sql1)
 			db.commit()
-			print "Camera Insert End"
 		except:
 			db.rollback()
 			print "ERROR INSERT"

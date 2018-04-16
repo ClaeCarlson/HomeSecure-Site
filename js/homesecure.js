@@ -6,12 +6,12 @@ var accentColor1 = "#F0E100";
 var accentColor2 = "#EEBA0B";
 
 var themeSrc = "css/style.css";
-//var camUrl = "http://172.19.20.41:8081/";
+var camUrl = "http://172.19.20.41:8081/";
 //var camUrl = "https://wztxmxwb.p19.rt3.io/"
-var camUrl = "http://192.168.0.123:8081"
+//var camUrl = "http://192.168.0.123:8081"
 
-var url = "http://192.168.0.123:8123/api/states?api_password=aurorahome"
-//var url = "http://172.19.20.41:8123/api/states?api_password=aurorahome"
+//var url = "http://192.168.0.123:8123/api/states"
+var url = "http://172.19.20.41:8123/api/states?api_password=aurorahome "
 //var url = "https://rzyygcpm.p19.rt3.io/api/states"
 var firstLoad = 1;
 var gotten = 0;
@@ -92,6 +92,8 @@ $(document).ready(function(){
         $("#outlet_state").text(outlet_state);
 
         gotten = 1;
+
+
 
 
 
@@ -211,6 +213,7 @@ function setStatus(status){
   				type: "post",
   				data: {status: armstatus},
  				success: function(data) {
+ 					alert(data);
   			}
 		});
 
@@ -248,6 +251,10 @@ function selectTheme(theme) {
 
 	document.getElementById("theme").value = theme
 
+}
+
+function setEmail(){
+	alert("email");
 }
 
 function select(op){
