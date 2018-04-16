@@ -220,6 +220,19 @@ function setStatus(status){
 	});
 }
 
+function getLogs(){
+	$(document).ready(function(){
+
+		$.ajax({
+  				url: 'php/getLogs.php',
+ 				success: function(data) {
+    			$("#logs").html(data);
+  				}
+				});
+
+	});
+}
+
 function setTheme(theme) {
 
 	
