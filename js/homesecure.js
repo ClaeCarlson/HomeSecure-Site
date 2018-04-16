@@ -213,9 +213,22 @@ function setStatus(status){
   				type: "post",
   				data: {status: armstatus},
  				success: function(data) {
- 					alert(data);
+ 					
   			}
 		});
+
+	});
+}
+
+function getLogs(){
+	$(document).ready(function(){
+
+		$.ajax({
+  				url: 'php/getLogs.php',
+ 				success: function(data) {
+    			$("#logs").html(data);
+  				}
+				});
 
 	});
 }

@@ -343,6 +343,17 @@ body{
     background-color: var(--sidenav-hoverbg);
 }
 
+#logs th{
+
+    color: var(--accent-color);
+
+}
+
+hr {
+    border: 1px solid var(--main-color); 
+    width: 90%;
+}
+
 .statusOverlayLock {
     font-size: 200px;
     position: fixed; 
