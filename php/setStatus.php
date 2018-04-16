@@ -10,10 +10,11 @@ $user = $_SESSION['username'];
 $result = $mysqli->query("UPDATE system SET status = '$status' WHERE id=1");
 
 
-$userResult = $mysqli->query("SELECT id FROM users WHERE username='$user'");
+$userID = $_SESSION['id'];
 
-$mysqli->query("INSERT INTO logs (status, user_id, system_id) VALUES('$status', '$userResult', 1)");
+$mysqli->query("INSERT INTO logs (status, user_id, system_id) VALUES('$status', '$userID', 1)");
 
+echo "test";
 
 
 ?>
