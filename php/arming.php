@@ -183,7 +183,7 @@
 				echo $useremails[$i];
 				$to = $useremails[$i];
 				mail( $to, $subject, $message );
-				echo "Email SEnt";
+				echo "Email Sent";
 
 
 			}

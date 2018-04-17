@@ -221,7 +221,7 @@ function setStatus(status){
   				type: "post",
   				data: {status: armstatus},
  				success: function(data) {
- 					alert(data);
+ 					//alert(data);
   			}
 		});
 
