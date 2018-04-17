@@ -327,10 +327,14 @@ body{
 /* Lights */
 
 .outlet {
-    color: white;
-    background-color: blue !important;
+    font-size: 30px;
+    color: var(--main-color);
     padding: 5px;
     cursor: pointer;
+}
+.outlet:hover{
+    background-color: var(--sidenav-hoverbg);
+    color: white;
 }
 
 /* Arm/Disarm */

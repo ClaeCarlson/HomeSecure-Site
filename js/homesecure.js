@@ -110,6 +110,14 @@ $(document).ready(function(){
 		if (gotten) {
 		$("#temperatureSign").text("F");
 		$("#humiditySign").text("%"); 
+
+		if (outlet_state == "on") {
+			$("#outletSign").html('<i class="fas fa-lightbulb"></i>');
+		}
+		else {
+			$("#outletSign").html('<i class="far fa-lightbulb"></i>');
+		}
+		
 		//$("#coSign").text("PPM");
 	}
 	}, 2000);
