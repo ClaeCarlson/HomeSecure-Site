@@ -21,9 +21,43 @@
     				$("#email").html(data);
   				}
 				});
+
+		$("#reboot").click(function()
+			{ 
+				$.ajax({url:'php/reboot.php', 
+					success: function(data)
+					{
+						alert(data);
+					}
+				}); 
+			}
+		);
 		
+		$("#rotateStart").click(function(){
+
+			$.ajax({url:'php/rotateStart.php', 
+				success: function(data)
+				{
+					alert(data);
+				}
+			});
 
 		});
+
+		$("#rotateStop").click(function(){
+
+			$.ajax({url:'php/rotateStop.php', 
+				success: function(data)
+				{
+					alert(data);
+				}
+			});
+
+		});
+
+		});
+
+		
 		</script>
 </head>
 <body>
@@ -42,20 +76,19 @@
 		<button onclick="setTheme('leafgreen'); selectTheme(3)" class="theme_select leafgreen"><img src="img/icon_white.png" height="50px" width="80px"><span class="caption">Leaf</span></button>
 		
 	</div>
-	<div>Preferred Email: <span class="email" id="email" onclick="showEmail();"></span></div>
-	<input id="emailinput" type="email" placeholder="New email preference" style="width: 50%; margin-left: 30px; display: none;"><button onclick="setEmail(document.getElementById('emailinput').value)" id="emailbtn" style="margin-left: 10px; display: none">Update</button>
+	<div>Preferred Email: <span class="email" id="email" onclick="setEmail();"></span></div>
 	<div></div>
 	<form action="php/setPref.php" method="post" style="border: none; display: inline-block;">
 
 	<input style="display: none" type="text" name="theme" id="theme">
-	<input style="display: none" type="email" name="email" id="email">
+	<input style="display: none" type="text" name="email" id="email">
 	<div><button>Save Preferences</button></div>
 	</form>
 
 	<span style="margin-left: 260px">
-	<button style="margin-left: 20px; background-color: #369ec1">Start Camera Panning</button>
-	<button style="margin-left: 20px; background-color: #bc3439">Stop Camera Panning</button>
-	<button style="margin-left: 20px; background-color: #eda200">Reboot Pi</button>
+	<button style="margin-left: 20px; background-color: #369ec1" id="rotateStart" >Start Camera Panning</button>
+	<button style="margin-left: 20px; background-color: #bc3439" id="rotateStop">Stop Camera Panning</button>
+	<button style="margin-left: 20px; background-color: #eda200" id="reboot">Reboot Pi</button>
 	</span>
 
 
