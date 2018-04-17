@@ -103,6 +103,8 @@
 				{
 					if ((($data[$i]->state) == "on" && $sendMessage1 == 0) || $sendMessage1 == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
 					{
+						if ($sendMessage1 == 0)
+							exec('sudo python /var/www/html/python/DoorSound.py');
 						$message = "Possible intrusion! Door 1 was opened while system was armed!";
 						$sendMessage1++;
 						$subject = "INTRUSION";
@@ -114,6 +116,8 @@
 				{
 					if ((($data[$i]->state) == "on" && $sendMessage2 == 0) || $sendMessage2 == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
 					{
+						if ($sendMessage2 == 0)
+							exec('sudo python /var/www/html/python/DoorSound.py');
 						$message = "Possible intrusion! Door 2 was opened while system was armed!";
 						$sendMessage2++;
 						$subject = "INTRUSION";
@@ -132,7 +136,8 @@
 				{
 					if ($sendMessageSmoke == 0)
 					{
-						$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(1, 5, 1)"); 
+						$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(1, 5, 1)");
+						exec('sudo python /var/www/html/python/SmokeSound.py'); 
 					}
 					$message = "Smoke detected!";
 					$sendMessageSmoke++;
@@ -152,7 +157,10 @@
 				if ((($data[$i]->state) == "on" && $sendMessageCO == 0) || $sendMessageCO == 1)//Checks to make sure the sensor is actiaved and that the message has gone through only max twice
 				{
 					if ($sendMessageCO == 0)
+					{
 						$mysqli->query("INSERT INTO logs (status, sensors_id, system_id) VALUES(1, 6, 1)"); 
+						exec('sudo python /var/www/html/python/SmokeSound.py');
+					}
 					$message = "Carbon Monoxide detected!";
 					$sendMessageCO++;
 					$subject = "CO Alarm";
@@ -179,7 +187,7 @@
 
 
 			}
-			sleep(15);
+			sleep(5);
 		}
   	}
  ?>
