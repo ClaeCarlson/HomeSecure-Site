@@ -327,10 +327,14 @@ body{
 /* Lights */
 
 .outlet {
-    color: white;
-    background-color: blue !important;
+    font-size: 30px;
+    color: var(--main-color);
     padding: 5px;
     cursor: pointer;
+}
+.outlet:hover{
+    background-color: var(--sidenav-hoverbg);
+    color: white;
 }
 
 /* Arm/Disarm */
@@ -341,6 +345,17 @@ body{
 }
 .status:hover{
     background-color: var(--sidenav-hoverbg);
+}
+
+#logs th{
+
+    color: var(--accent-color);
+
+}
+
+hr {
+    border: 1px solid var(--main-color); 
+    width: 90%;
 }
 
 .statusOverlayLock {
@@ -358,11 +373,11 @@ body{
     text-align: center;
     z-index: 100;
     display: none;
-    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 0.5s; /* Firefox < 16 */
-        -ms-animation: fadein 0.5s; /* Internet Explorer */
-         -o-animation: fadein 0.5s; /* Opera < 12.1 */
-            animation: fadein 0.5s;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
 }
 
 .statusOverlayUnlock {
@@ -380,11 +395,11 @@ body{
     text-align: center;
     z-index: 100;
     display: none;
-    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 0.5s; /* Firefox < 16 */
-        -ms-animation: fadein 0.5s; /* Internet Explorer */
-         -o-animation: fadein 0.5s; /* Opera < 12.1 */
-            animation: fadein 0.5s;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
 }
 
 @keyframes fadein {

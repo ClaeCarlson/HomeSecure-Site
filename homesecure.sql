@@ -62,7 +62,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `homesecure`.`logs` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
-  `time` DATETIME NOT NULL COMMENT '',
+  `time` TIMESTAMP NOT NULL COMMENT '',
   `status` INT(11) NOT NULL COMMENT '',
   `sensors_id` INT(11) NULL DEFAULT NULL COMMENT '',
   `users_id` INT(11) NULL DEFAULT NULL COMMENT '',

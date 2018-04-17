@@ -110,6 +110,14 @@ $(document).ready(function(){
 		if (gotten) {
 		$("#temperatureSign").text("F");
 		$("#humiditySign").text("%"); 
+
+		if (outlet_state == "on") {
+			$("#outletSign").html('<i class="fas fa-lightbulb"></i>');
+		}
+		else {
+			$("#outletSign").html('<i class="far fa-lightbulb"></i>');
+		}
+		
 		//$("#coSign").text("PPM");
 	}
 	}, 2000);
@@ -213,9 +221,22 @@ function setStatus(status){
   				type: "post",
   				data: {status: armstatus},
  				success: function(data) {
- 					alert(data);
+ 					//alert(data);
   			}
 		});
+
+	});
+}
+
+function getLogs(){
+	$(document).ready(function(){
+
+		$.ajax({
+  				url: 'php/getLogs.php',
+ 				success: function(data) {
+    			$("#logs").html(data);
+  				}
+				});
 
 	});
 }

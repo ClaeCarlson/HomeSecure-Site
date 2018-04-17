@@ -327,10 +327,14 @@ body{
 /* Lights */
 
 .outlet {
-    color: white;
-    background-color: blue !important;
+    font-size: 30px;
+    color: var(--main-color);
     padding: 5px;
     cursor: pointer;
+}
+.outlet:hover{
+    background-color: var(--sidenav-hoverbg);
+    color: white;
 }
 
 /* Arm/Disarm */
@@ -343,6 +347,16 @@ body{
     background-color: var(--sidenav-hoverbg);
 }
 
+#logs th{
+
+    color: var(--accent-color);
+
+}
+
+hr {
+    border: 1px solid var(--main-color); 
+    width: 90%;
+}
 .statusOverlayLock {
     font-size: 200px;
     position: fixed; 

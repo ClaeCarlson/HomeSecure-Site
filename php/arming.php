@@ -9,6 +9,7 @@
   	if ($mysqli->connect_error) {
   		die("Failed:" . $conn->connection_error);
   	}
+  	$url = "http://172.19.20.41:8123/api/states?api_password=aurorahome"
   	$lastdoor1 = "";
 	$lastdoor2 = "";
 	$laststatus = "";
@@ -18,6 +19,7 @@
 	$sendMessageCO = 0;
 	$insertCO = 0;
 	$insertSmoke = 0;
+
 
   	while (true)
   	{
@@ -34,7 +36,7 @@
 		$message = "";
 		$subject = "";
 
-		$json = file_get_contents("http://192.168.0.123:8123/api/states?api_password=aurorahome");
+		$json = file_get_contents();
 		$data = json_decode($json);
 		$length  = count($data);
 		for ($i = 0; $i < $length; $i++)//Logging for Door2
