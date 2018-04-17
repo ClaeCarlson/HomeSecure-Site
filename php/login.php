@@ -8,6 +8,7 @@ $result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that username doesn't exist!";
     header("location: php/error.php");
+
 }
 else { // User exists
     $user = $result->fetch_assoc();

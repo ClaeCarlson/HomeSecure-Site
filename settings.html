@@ -42,12 +42,13 @@
 		<button onclick="setTheme('leafgreen'); selectTheme(3)" class="theme_select leafgreen"><img src="img/icon_white.png" height="50px" width="80px"><span class="caption">Leaf</span></button>
 		
 	</div>
-	<div>Preferred Email: <span class="email" id="email" onclick="setEmail();"></span></div>
+	<div>Preferred Email: <span class="email" id="email" onclick="showEmail();"></span></div>
+	<input id="emailinput" type="email" placeholder="New email preference" style="width: 50%; margin-left: 30px; display: none;"><button onclick="setEmail(document.getElementById('emailinput').value)" id="emailbtn" style="margin-left: 10px; display: none">Update</button>
 	<div></div>
 	<form action="php/setPref.php" method="post" style="border: none; display: inline-block;">
 
 	<input style="display: none" type="text" name="theme" id="theme">
-	<input style="display: none" type="text" name="email" id="email">
+	<input style="display: none" type="email" name="email" id="email">
 	<div><button>Save Preferences</button></div>
 	</form>
 

@@ -7,6 +7,8 @@ session_start();
 $theme = $_POST['theme'];
 $themeString = "";
 
+$email = $_POST['email'];
+
 $id = $_SESSION['id'];
 
 switch ($theme) {
@@ -34,7 +36,7 @@ if ( $result->num_rows > 0 ) {
     
     $sql = "UPDATE preferences SET theme = '$theme' WHERE users_id='$id'";
 
-    // Add user to the database
+    
     if ( $mysqli->query($sql) ){
 
         $_SESSION['message'] =
@@ -56,8 +58,27 @@ else {
 	$sql = "INSERT INTO preferences (theme, notifications, users_id) " 
             . "VALUES ('$theme', '0', '$id')";
 
-    // Add user to the database
+    
     if ( $mysqli->query($sql) ){
+
+        $_SESSION['message'] =
+                
+                 "Saved preferences successfully!";
+
+        echo '<script type="text/javascript"> window.top.location.reload(); </script>';
+        
+
+    }
+
+    else {
+        $_SESSION['message'] = 'Saving preferences failed!' . $sql . " and " . $mysqli->error . "USER ID = " . $id;
+        header("location: error.php");
+    }
+}
+/*
+$sql = "UPDATE users SET email = '$email' WHERE id='$id'";
+
+if ( $mysqli->query($sql) ){
 
         $_SESSION['message'] =
                 
@@ -72,7 +93,6 @@ else {
         $_SESSION['message'] = 'Saving preferences failed!' . $sql . " and " . $mysqli->error . "USER ID = " . $id;
         header("location: error.php");
     }
-}
-
+*/
 
 ?>

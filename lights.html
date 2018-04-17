@@ -23,7 +23,7 @@
 			}); 
 
 		$(".outlet").click(function(){
-        	$.post("http://172.19.20.41:8123/api/services/switch/toggle", JSON.stringify({
+        	$.post("http://172.19.20.41:8123/api/services/switch/toggle?api_password=aurorahome", JSON.stringify({
             "entity_id":"switch.switch_3"
        }),
           function(data, status){

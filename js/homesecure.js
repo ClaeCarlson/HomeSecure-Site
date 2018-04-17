@@ -271,14 +271,22 @@ function selectTheme(theme) {
 	preferredTheme = theme;
 
 	document.getElementById("theme").value = theme
+	//document.getElementById("email").value = 
 
 }
 
-function setEmail(){
-	alert("email");
+function showEmail() {
+
+	document.getElementById("emailinput").style.display = "inline-block";
+	document.getElementById("emailbtn").style.display = "inline-block";
 }
 
-function select(op){
+function setEmail(email) {
+
+	document.getElementById("email").value = email;
+}
+
+function select(op) {
 
 	var opString;
 	for (i = 1; i < 7; i++) {
