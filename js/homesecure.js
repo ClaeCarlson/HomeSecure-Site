@@ -87,7 +87,7 @@ $(document).ready(function(){
         	door1 = "open";
         }
         else {
-        	door1 = "closed;"
+        	door1 = "closed"
 
         }
 
