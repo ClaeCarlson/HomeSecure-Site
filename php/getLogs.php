@@ -18,6 +18,8 @@ while($row = $result->fetch_assoc()){
     $username = "";
     $sensorName = "";
 
+    $checkArmed == 0;
+
     if ($sensor != NULL) {
     $sensorResult = $mysqli->query("SELECT name FROM sensors WHERE id = '$sensor'");
     $sensorName = $sensorResult->fetch_assoc();
@@ -31,25 +33,42 @@ while($row = $result->fetch_assoc()){
     $userResult = $mysqli->query("SELECT username FROM users WHERE id = '$uid'");
     $username = $userResult->fetch_assoc();
     $username = $username['username']; 
+    $checkArmed = 1;
+
     }
     else {
         $username == "N/A";
     }
 
 
+    if ($checkArmed) {
+       if ($status == 1) {
 
+            $message = "ARMED";
 
+        }
+        else {
 
-    if ($status == 1) {
+            $message = "DISARMED";
 
-    	$message = "ARMED";
-
+        } 
     }
     else {
+        if ($status == 1) {
 
-    	$message = "DISARMED";
+            $message = "On";
 
+        }
+        else {
+
+            $message = "Off";
+
+        }    
     }
+
+
+
+    
 
     echo '<tr><td>' . $message . '</td><td>' . $time . '</td><td>' . $sensorName . '</td><td>' . $username . '</td></tr>';
 
