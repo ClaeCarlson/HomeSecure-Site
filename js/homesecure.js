@@ -101,6 +101,20 @@ $(document).ready(function(){
         }
 
 
+        if (smoke == "on") {
+        	smoke = "hazard";
+        }
+        else if (smoke == "off") {
+        	smoke = "safe";
+        }
+        if (co == "on") {
+        	co = "hazard";
+        }
+        else if (co == "off") {
+        	co = "safe";
+        }
+
+
         $("#temperature").text(temp);
         $("#humidity").text(humidity);
         $("#smoke").text(smoke);
