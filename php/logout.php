@@ -15,10 +15,21 @@ session_destroy();
 	}, 5000);
   </script>
   <?php include '../css/css.html'; ?>
+  <style type="text/css">
+    button {
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+  </style>
 </head>
 
-<body>
-    <div class="form">
+<body style="background-image: url('../img/night_trees.jpg')">
+    <div style="text-align: center; margin-top: 200px; color: white">
           <h1>Thanks for stopping by</h1>
               
           <p><?= 'You have been logged out!'; ?></p>

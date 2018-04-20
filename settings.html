@@ -24,7 +24,8 @@
 
 		$("#reboot").click(function()
 			{ 
-				$.ajax({url:'php/reboot.php', 
+				$.ajax({
+					url:'php/reboot.php', 
 					success: function(data)
 					{
 						alert(data);

@@ -9,10 +9,10 @@ session_start();
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <?php include '../css/css.html'; ?>
 </head>
-<body style="background-color: #294859; text-align: center; margin-top: 100px;">
+<body style="background-color: #eee; text-align: center; margin-top: 20px;">
 <div class="frametext">
-    <h1 class="frametext" style="color: white">Error</h1>
-    <img src="../img/error.png">
+    <h1 class="frametext" style="color: #294859; font-size: 50px; margin-bottom: 0;">Something went wrong</h1>
+    <img height="500" width="350" src="../img/error.png">
     <p>
     <?php 
     if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ): 
@@ -21,7 +21,7 @@ session_start();
         unset( $_SESSION['message'] );
     }
     else:
-        //header( "location: index.php" );
+        header( "location: index.php" );
     endif;
     ?>
     </p>     

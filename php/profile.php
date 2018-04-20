@@ -20,12 +20,23 @@ else {
   <meta charset="UTF-8">
   <title>Welcome <?= $username ?></title>
   <?php include '../css/css.html'; ?>
+  <style type="text/css">
+    button {
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+  </style>
 </head>
 
-<body>
-  <div class="form">
+<body style="background-image: url('../img/sky.png')">
+  <div style="text-align: center; margin-top: 200px; color: white">
 
-          <h1>Welcome</h1>
+          <h1>Welcome, <?php echo $username; ?></h1>
           
           <p>
           <?php 
@@ -54,9 +65,9 @@ else {
           }
           else {
             echo '<div class="info">
-            Account is verified, redirecting to home page in 5 seconds</div>';
+            Account is verified<br>Redirecting to home page in 5s</div>';
 
-            echo '<script type="text/javascript">
+           echo '<script type="text/javascript">
                   setTimeout(function(){
                   window.location="../index.php"
                   }, 5000);
@@ -65,11 +76,10 @@ else {
           
           ?>
           
-          <h2><?php echo $username; ?></h2>
           <p><?= $email ?></p>
           
-          <a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
-          <a href="../index.php"><button class="button button-block"/>Home</button></a>
+          <a href="logout.php"><button style="border-radius: 5px;" name="logout"/>Log Out</button></a>
+          <a href="../index.php"><button/>Home</button></a>
 
     </div>
     
