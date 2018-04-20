@@ -83,6 +83,24 @@ $(document).ready(function(){
 
         });
 
+        if (door1 == "on") {
+        	door1 = "open";
+        }
+        else {
+        	door1 = "closed;"
+
+        }
+
+        if (door2 == "on") {
+        	door2 = "open";
+
+        }
+        else {
+        	door2 = "closed";
+
+        }
+
+
         $("#temperature").text(temp);
         $("#humidity").text(humidity);
         $("#smoke").text(smoke);
