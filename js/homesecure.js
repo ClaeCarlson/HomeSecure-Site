@@ -86,7 +86,7 @@ $(document).ready(function(){
         if (door1 == "on") {
         	door1 = "open";
         }
-        else {
+        else if (door1 == "off") {
         	door1 = "closed"
 
         }
@@ -95,7 +95,7 @@ $(document).ready(function(){
         	door2 = "open";
 
         }
-        else {
+        else if (door2 == "off"){
         	door2 = "closed";
 
         }
