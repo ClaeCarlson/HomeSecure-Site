@@ -56,6 +56,17 @@
 
 		});
 
+		$("#camRestart").click(function(){
+
+			$.ajax({url:'php/camRestart.php', 
+				success: function(data)
+				{
+					alert(data);
+				}
+			});
+
+		});
+
 		});
 
 		
@@ -86,11 +97,12 @@
 	<div><button>Save Preferences</button></div>
 	</form>
 
-	<span style="margin-left: 260px">
-	<button style="margin-left: 20px; background-color: #369ec1" id="rotateStart" >Start Camera Panning</button>
+	<!--<span style="margin-left: 100px">
+	<button style="margin-left: 20px; background-color: #369ec1" id="camRestart">Restart Camera</button>
+	<button style="margin-left: 20px; background-color: #0f8e11" id="rotateStart" >Start Camera Panning</button>
 	<button style="margin-left: 20px; background-color: #bc3439" id="rotateStop">Stop Camera Panning</button>
 	<button style="margin-left: 20px; background-color: #eda200" id="reboot">Reboot Pi</button>
-	</span>
+	</span>!-->
 
 
 
