@@ -1,15 +1,16 @@
 <?php
-	sleep(60);
+//This program is what runs in the background of the PI and is constantly checking HA API to see if there are any changes in any of the states. If there is it inputs a row into the log table and sends email
+	sleep(60);//Sleep first 60 seconds to allow pi to bootup.
 	$host = 'localhost';
 	$user = 'homesecure';
 	$pass = 'aurora';
 	$db = 'homesecure';
-  	$mysqli = mysqli_connect($host, $user, $pass, $db) or die($mysqli->error);
+  	$mysqli = mysqli_connect($host, $user, $pass, $db) or die($mysqli->error);//DB connection
 
   	if ($mysqli->connect_error) {
   		die("Failed:" . $conn->connection_error);
   	}
-  	$url = "http://172.19.20.41:8123/api/states?api_password=aurorahome";
+  	$url = "http://172.19.20.41:8123/api/states?api_password=aurorahome";//URL for HA API
   	$lastdoor1 = "";
 	$lastdoor2 = "";
 	$laststatus = "";
@@ -21,13 +22,13 @@
 	$insertSmoke = 0;
 
 
-  	while (true)
+  	while (true)//Constant reocurring loop
   	{
 
   		sleep(2);
-  		$result = $mysqli->query("SELECT status FROM system WHERE id=1");
+  		$result = $mysqli->query("SELECT status FROM system WHERE id=1");//Grabs the statys of the system
 		$status = $result->fetch_assoc();
-		$usersQ = $mysqli->query("SELECT email FROM users");
+		$usersQ = $mysqli->query("SELECT email FROM users");//Grabs all the emails of all users
 		$useremails = array();
 		while($emails = $usersQ->fetch_assoc())
 		{
