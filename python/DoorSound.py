@@ -1,4 +1,6 @@
 #!/usr/bin/python3.5
+#Bryce Renninger 04/20/18 
+#Playing a sound file when it is called upon
 
 import pygame
 import time

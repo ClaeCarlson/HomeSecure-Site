@@ -1,4 +1,7 @@
 #!/var/www/html/python
+#Bryce Renninger 04/20/18
+#Connects to database and inserts row into database. It is called upon when camera detects motion.
+
 
 import MySQLdb
 import time
