@@ -1,4 +1,7 @@
 #!/var/www/html/python
+#Bryce Renninger 04/20/18
+#Connects to database and inserts a row into the log table when it is called upon. 
+#It is called upon when motion is done detecting motion, and inserts a 0 into the camera status.
 
 import MySQLdb
 import time
